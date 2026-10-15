@@ -2,4 +2,4 @@ user-agent: *
 Allow: /
 
 Sitemap:
-https://customstudy8.github.io/siddharth-portfolio/Sitemap.xml
+https://customstudy8.github.io/siddharth-portfolio/sitemap.xml
