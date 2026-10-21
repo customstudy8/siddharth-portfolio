@@ -25,6 +25,7 @@ const state = {
         "Retail Operations",
         "Sales Professional",
         "Sales & Marketing",
+        "Human Resource Management",
         "Management Information System",
         "Aspiring Business Analyst",
         "Future Entrepreneur",
