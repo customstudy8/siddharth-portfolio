@@ -4702,3 +4702,188 @@ body[data-weather-state="snow"] .real-weather-icon {
 .real-weather-extra b{
   color:#dff7ff;
 }
+
+/* =========================================
+   ORGANIZATION LOGO MARQUEE
+   Online icons only — no local image assets
+   ========================================= */
+
+.organization-marquee {
+  width: 100%;
+  margin: 38px auto 30px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.organization-marquee__heading {
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary, #8b8b8b);
+}
+
+.organization-marquee__viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+}
+
+.organization-marquee__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 18px;
+  animation: organization-marquee-move-right 38s linear infinite;
+  will-change: transform;
+}
+
+.organization-logo {
+  flex: 0 0 auto;
+  width: 180px;
+  min-height: 88px;
+  box-sizing: border-box;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border: 1px solid var(--border-color, rgba(128, 128, 128, 0.22));
+  border-radius: 14px;
+  background: var(--card-bg, rgba(128, 128, 128, 0.06));
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.organization-logo img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.organization-logo span {
+  max-width: 105px;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--text-color, inherit);
+  overflow-wrap: anywhere;
+}
+
+.organization-logo:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-color, #777);
+}
+
+.organization-marquee__viewport:hover
+.organization-marquee__track {
+  animation-play-state: paused;
+}
+
+/* Moves the logos from left to right continuously */
+@keyframes organization-marquee-move-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .organization-marquee {
+    margin: 28px auto 24px;
+  }
+
+  .organization-marquee__track {
+    gap: 12px;
+    animation-duration: 32s;
+  }
+
+  .organization-logo {
+    width: 158px;
+    min-height: 78px;
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .organization-logo img {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .organization-logo span {
+    font-size: 0.75rem;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .organization-marquee__heading {
+    font-size: 0.7rem;
+    margin-bottom: 14px;
+  }
+
+  .organization-marquee__track {
+    gap: 10px;
+    animation-duration: 28s;
+  }
+
+  .organization-logo {
+    width: 145px;
+    min-height: 72px;
+    padding: 10px;
+    border-radius: 11px;
+  }
+
+  .organization-logo img {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+
+  .organization-logo span {
+    font-size: 0.7rem;
+  }
+}
+
+/* Accessibility: respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .organization-marquee__track {
+    animation: none;
+    transform: none;
+  }
+
+  .organization-marquee__viewport {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
