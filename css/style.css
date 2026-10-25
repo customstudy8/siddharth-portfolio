@@ -4887,3 +4887,43 @@ body[data-weather-state="snow"] .real-weather-icon {
     mask-image: none;
   }
 }
+
+
+/* Mobile marquee animation fix */
+@media screen and (max-width: 768px) {
+  .organization-marquee__viewport {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .organization-marquee__track {
+    display: flex;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: organization-marquee-move-right 25s linear infinite !important;
+    -webkit-animation: organization-marquee-move-right 25s linear infinite !important;
+    transform: translateX(-50%);
+    will-change: transform;
+  }
+
+  .organization-logo {
+    flex-shrink: 0;
+  }
+
+  .organization-marquee__viewport:hover
+  .organization-marquee__track {
+    animation-play-state: running;
+    -webkit-animation-play-state: running;
+  }
+}
+
+@keyframes organization-marquee-move-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
