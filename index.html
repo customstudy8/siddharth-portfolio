@@ -469,6 +469,106 @@
         <i></i>
     </div>
 
+    <!-- SIDDHARTH MISHRA — COMPACT OFFLINE MUSIC PLAYER -->
+
+<aside class="sm-music" id="smMusic" aria-label="Personal music player">
+  <div class="sm-music__top">
+    <div class="sm-music__brand">
+      <span class="sm-music__logo" aria-hidden="true">SM<span>.</span></span>
+      <div class="sm-music__brand-text">
+        <div class="sm-music__eyebrow">MANAGEMENT × TECHNOLOGY</div>
+        <div class="sm-music__heading">Personal Audio</div>
+      </div>
+    </div>
+
+    <button class="sm-music__icon-btn" id="smCollapse"
+      type="button" aria-label="Minimize music player"
+      aria-expanded="true" title="Minimize player">
+      <span id="smCollapseIcon" aria-hidden="true">−</span>
+    </button>
+  </div>
+
+  <div class="sm-music__body" id="smMusicBody">
+    <audio id="smAudio" preload="metadata"></audio>
+
+    <div class="sm-music__track">
+      <div class="sm-music__art" aria-hidden="true">
+        <span class="sm-music__art-line"></span>
+        <span class="sm-music__art-note">♪</span>
+      </div>
+
+      <div class="sm-music__track-info">
+        <div class="sm-music__live">
+          <span class="sm-music__status-dot" id="smStatusDot"></span>
+          <span id="smStatus">LOCAL MUSIC LIBRARY</span>
+        </div>
+        <div class="sm-music__title" id="smTitle">Select a track</div>
+        <div class="sm-music__artist" id="smArtist">Siddharth Mishra</div>
+      </div>
+    </div>
+
+    <div class="sm-music__timeline">
+      <input id="smSeek" type="range" min="0" max="1000"
+        value="0" step="1" aria-label="Track progress" disabled>
+      <div class="sm-music__timestamps">
+        <span id="smCurrent">0:00</span>
+        <span id="smDuration">0:00</span>
+      </div>
+    </div>
+
+    <div class="sm-music__controls">
+      <button class="sm-music__control" id="smShuffle"
+        type="button" aria-label="Shuffle off"
+        aria-pressed="false" title="Shuffle">⤨</button>
+
+      <button class="sm-music__control" id="smPrevious"
+        type="button" aria-label="Previous track"
+        title="Previous track">|◀</button>
+
+      <button class="sm-music__play" id="smPlay"
+        type="button" aria-label="Play music" title="Play">
+        <span id="smPlayIcon" aria-hidden="true">▶</span>
+      </button>
+
+      <button class="sm-music__control" id="smNext"
+        type="button" aria-label="Next track" title="Next track">▶|</button>
+
+      <button class="sm-music__control" id="smRepeat"
+        type="button" aria-label="Repeat off"
+        aria-pressed="false" title="Repeat off">↻</button>
+    </div>
+
+    <div class="sm-music__bottom-row">
+      <button class="sm-music__volume-icon" id="smMute"
+        type="button" aria-label="Mute audio" title="Mute">♪</button>
+
+      <input id="smVolume" type="range" min="0" max="1"
+        value="0.7" step="0.01" aria-label="Volume">
+
+      <button class="sm-music__library-btn" id="smPlaylistToggle"
+        type="button" aria-expanded="false" aria-controls="smPlaylist">
+        TRACKS <span id="smCount">03</span>
+      </button>
+    </div>
+
+    <div class="sm-music__playlist" id="smPlaylist" hidden>
+      <div class="sm-music__playlist-heading">
+        <span>YOUR LIBRARY</span>
+        <span>LOCAL FILES</span>
+      </div>
+      <div id="smTrackList"></div>
+    </div>
+
+    <div class="sm-music__footer">
+      <span>PERSONAL COLLECTION</span>
+      <span class="sm-music__footer-dot" aria-hidden="true">●</span>
+      <span>OFFLINE PLAYER</span>
+    </div>
+  </div>
+</aside>
+
+<script src="js/music-player.js"></script>
+
 </section>
 
 
