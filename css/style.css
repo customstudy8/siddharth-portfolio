@@ -5558,3 +5558,121 @@ body[data-weather-state="snow"] .real-weather-icon {
         transition: none;
     }
 }
+
+/* =========================================
+   SM MUSIC PLAYER — MOBILE RESPONSIVE FIX
+========================================= */
+
+#smMusic {
+    box-sizing: border-box;
+    width: 245px;
+    max-width: calc(100vw - 24px);
+    min-width: 0;
+    z-index: 999;
+}
+
+#smMusic *,
+#smMusic *::before,
+#smMusic *::after {
+    box-sizing: border-box;
+}
+
+#smMusic .sm-music__top,
+#smMusic .sm-music__brand,
+#smMusic .sm-music__track,
+#smMusic .sm-music__controls,
+#smMusic .sm-music__bottom-row {
+    min-width: 0;
+    max-width: 100%;
+}
+
+#smMusic .sm-music__brand-text,
+#smMusic .sm-music__track-info {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+#smMusic .sm-music__title,
+#smMusic .sm-music__artist {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#smMusic .sm-music__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+#smMusic .sm-music__control,
+#smMusic .sm-music__play {
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+#smMusic .sm-music__bottom-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#smMusic #smVolume {
+    flex: 1 1 50px;
+    min-width: 25px;
+    max-width: 100%;
+}
+
+#smMusic .sm-music__playlist {
+    max-width: 100%;
+}
+
+#smMusic #smTrackList {
+    max-width: 100%;
+}
+
+#smMusic .sm-music__track-btn {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+    #smMusic {
+        right: 12px;
+        width: min(245px, calc(100vw - 24px));
+        font-size: 12px;
+    }
+
+    #smMusic .sm-music__eyebrow {
+        font-size: 8px;
+        letter-spacing: 0.06em;
+        white-space: normal;
+    }
+
+    #smMusic .sm-music__heading {
+        font-size: 12px;
+    }
+
+    #smMusic .sm-music__control {
+        padding: 7px 4px;
+    }
+
+    #smMusic .sm-music__play {
+        padding: 9px;
+    }
+
+    #smMusic .sm-music__footer {
+        flex-wrap: wrap;
+        gap: 4px;
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 360px) {
+    #smMusic {
+        right: 8px;
+        width: calc(100vw - 16px);
+    }
+}
