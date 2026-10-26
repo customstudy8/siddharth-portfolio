@@ -4751,7 +4751,7 @@ body[data-weather-state="snow"] .real-weather-icon {
   align-items: center;
   width: max-content;
   gap: 18px;
-  animation: organization-marquee-move-right 55s linear infinite;
+  animation: organization-marquee-move-right 60s linear infinite;
   will-change: transform;
 }
 
@@ -4823,7 +4823,7 @@ body[data-weather-state="snow"] .real-weather-icon {
 
   .organization-marquee__track {
     gap: 12px;
-    animation-duration: 55s;
+    animation-duration: 60s;
   }
 
   .organization-logo {
