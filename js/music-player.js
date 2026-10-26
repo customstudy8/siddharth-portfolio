@@ -404,50 +404,39 @@
   loadTrack(0);
 })();
 
-/* SM Music Player — Smooth Desktop Pointer Effect */
+/* SM Music Player — Subtle Mouse Follow Effect */
 (() => {
   const player = document.getElementById("smMusic");
   if (!player) return;
 
-  const desktopPointer = window.matchMedia(
-    "(hover: hover) and (pointer: fine)"
-  );
+  // Mouse movement only on devices with a mouse/trackpad
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    return;
+  }
 
-  if (!desktopPointer.matches) return;
+  let frame = null;
 
-  let frameId = 0;
-  let targetX = 0;
-  let targetY = 0;
+  document.addEventListener("mousemove", (event) => {
+    if (frame) cancelAnimationFrame(frame);
 
-  function handlePointerMove(event) {
-    targetX = Math.max(
-      -3,
-      Math.min(3, (event.clientX / window.innerWidth - 0.5) * 6)
-    );
+    frame = requestAnimationFrame(() => {
+      const rect = player.getBoundingClientRect();
 
-    targetY = Math.max(
-      -3,
-      Math.min(3, (event.clientY / window.innerHeight - 0.5) * 6)
-    );
+      // Maximum movement: 4px in either direction
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
-    if (frameId) return;
+      const moveX = ((event.clientX - centerX) / window.innerWidth) * 8;
+      const moveY = ((event.clientY - centerY) / window.innerHeight) * 8;
 
-    frameId = requestAnimationFrame(() => {
-      player.style.setProperty("--sm-pointer-x", `${targetX}px`);
-      player.style.setProperty("--sm-pointer-y", `${targetY}px`);
-      frameId = 0;
+      player.style.translate =
+        `${Math.max(-4, Math.min(4, moveX))}px ${Math.max(-4, Math.min(4, moveY))}px`;
+
+      frame = null;
     });
-  }
+  }, { passive: true });
 
-  function resetPointer() {
-    player.style.setProperty("--sm-pointer-x", "0px");
-    player.style.setProperty("--sm-pointer-y", "0px");
-  }
-
-  document.addEventListener("pointermove", handlePointerMove, {
-    passive: true
+  document.addEventListener("mouseleave", () => {
+    player.style.translate = "0px 0px";
   });
-
-  document.documentElement.addEventListener("pointerleave", resetPointer);
-  window.addEventListener("blur", resetPointer);
 })();
