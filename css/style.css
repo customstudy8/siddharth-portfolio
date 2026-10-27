@@ -4703,6 +4703,54 @@ body[data-weather-state="snow"] .real-weather-icon {
   color:#dff7ff;
 }
 
+
+/* =========================================
+   LIVE WEATHER — TRANSPARENT WITH
+   WEATHER-BASED COLOUR-CHANGING OUTLINE
+========================================= */
+
+.real-weather-panel {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    /* Original weather-based border colour ko retain karein */
+    border-color: initial;
+    border-width: 1px;
+
+    /* Original weather-based outline glow ko retain karein */
+    box-shadow: none;
+
+    /* Background blur remove karein */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Decorative line ko visible rakhein */
+.real-weather-panel::before {
+    display: block !important;
+    content: "" !important;
+}
+
+/* Weather icon ka background transparent */
+.real-weather-icon {
+    background: transparent !important;
+    background-color: transparent !important;
+
+    /* Original weather-based icon outline ko retain karein */
+    box-shadow: none;
+    text-shadow: none;
+}
+
+/* Internal information areas transparent */
+.real-weather-meta,
+.real-weather-extra,
+.real-weather-updated {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+
 /* =========================================
    ORGANIZATION LOGO MARQUEE
    Online icons only — no local image assets
@@ -4928,51 +4976,6 @@ body[data-weather-state="snow"] .real-weather-icon {
   }
 }
 
-/* =========================================
-   LIVE WEATHER — TRANSPARENT WITH
-   WEATHER-BASED COLOUR-CHANGING OUTLINE
-========================================= */
-
-.real-weather-panel {
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-
-    /* Original weather-based border colour ko retain karein */
-    border-color: initial;
-    border-width: 1px;
-
-    /* Original weather-based outline glow ko retain karein */
-    box-shadow: none;
-
-    /* Background blur remove karein */
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-}
-
-/* Decorative line ko visible rakhein */
-.real-weather-panel::before {
-    display: block !important;
-    content: "" !important;
-}
-
-/* Weather icon ka background transparent */
-.real-weather-icon {
-    background: transparent !important;
-    background-color: transparent !important;
-
-    /* Original weather-based icon outline ko retain karein */
-    box-shadow: none;
-    text-shadow: none;
-}
-
-/* Internal information areas transparent */
-.real-weather-meta,
-.real-weather-extra,
-.real-weather-updated {
-    background: transparent !important;
-    box-shadow: none !important;
-}
 
 /* ================================================
    SM COMPACT TRANSPARENT OFFLINE MUSIC PLAYER
